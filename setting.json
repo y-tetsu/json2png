@@ -1,0 +1,13 @@
+{
+  "bg": ".\\bg\\enemy_gallery.png",
+  "character": ".\\character\\character.png",
+  "images": [
+    {"ini": "bottom_center", "x": 640, "y": 406, "scale": 6, "png_path": ".\\img\\helii.png", "flip_x": true, "flip_y": false}
+  ],
+  "texts": [
+    {"ini": "top_left", "x": 33, "y": 181, "scale": 6, "text": "ENEMY"},
+    {"ini": "top_left", "x": 33, "y": 229, "scale": 6, "text": "GALLERY"},
+    {"ini": "top_left", "x": 33, "y": 277, "scale": 6, "text": "NO.001"},
+    {"ini": "top_center", "x": 642, "y": 446, "scale": 6, "text": "HELII"}
+  ]
+}
