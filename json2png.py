@@ -23,7 +23,7 @@ class Char:
     def put_text(self, background, text, ini, x, y, scale):
         put_x = x
         text_len = len(text)
-        print("test :", text)
+        print("text :", text)
         for char in text:
             index = CHAR_INDEX[char.upper()]
             sx = (index % self.row_count) * (CHAR_SIZE + BORDER_SIZE) + BORDER_SIZE
