@@ -10,7 +10,7 @@ CHAR_INDEX = {
     "K": 10, "L": 11, "M": 12, "N": 13, "O": 14, "P": 15, "Q": 16, "R": 17, "S": 18, "T": 19,
     "U": 20, "V": 21, "W": 22, "X": 23, "Y": 24, "Z": 25, ">": 26, "@": 42, "-": 28, " ": 29,
     "0": 30, "1": 31, "2": 32, "3": 33, "4": 34, "5": 35, "6": 36, "7": 37, "8": 38, "9": 39,
-    "?": 40, ".": 41
+    "?": 40, ".": 41, "!": 43,
 }
 
 
@@ -88,13 +88,19 @@ background = Image.open(json_data["bg"]).convert("RGBA")
 # キャラクタ画像を開く
 char = Char(json_data["character"])
 
-# テキストを描く
+# テキストを描く(通常)
 for info in json_data["texts"]:
-    char.put_text(background, info["text"], info["ini"], info["x"], info["y"], info["scale"])
+    if "front" not in info or not info["front"]:
+        char.put_text(background, info["text"], info["ini"], info["x"], info["y"], info["scale"])
 
 # キャラの位置（左上の座標）
 for info in json_data["images"]:
     put_image(background, info["png_path"], info["ini"], info["x"], info["y"], info["scale"], info["flip_x"], info["flip_y"])
+
+# テキストを描く(前面)
+for info in json_data["texts"]:
+    if "front" in info and info["front"]:
+        char.put_text(background, info["text"], info["ini"], info["x"], info["y"], info["scale"])
 
 # 合成結果を保存
 background.save("result.png")
